@@ -1,6 +1,5 @@
 package com.odde.assertionsample;
 
-import org.assertj.core.internal.IgnoringFieldsComparator;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -75,8 +74,6 @@ public class AssertionSample {
 
         //how to assert actual is equal to expected?
         assertThat(actual)
-                .usingComparatorForFields((x, y) -> 0, "id", "age")
-                .usingComparatorForType(new IgnoringFieldsComparator("id"), Order.class)
-                .isEqualToComparingFieldByFieldRecursively(expected);
+                .isEqualToComparingOnlyGivenFields(expected, "birthday", "order.price");
     }
 }
