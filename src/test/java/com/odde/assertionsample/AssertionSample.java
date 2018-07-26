@@ -17,31 +17,28 @@ public class AssertionSample {
     }
 
     @Test
-    public void compare_customer_list()
-    {
+    public void compare_customer_list() {
         List<Customer> actual = customerRepo.getAll();
 
         //how to assert customers?
     }
 
     @Test
-    public void compare_composed_customer()
-    {
+    public void compare_composed_customer() {
         Customer actual = customerRepo.getComposedCustomer();
 
         //how to assert composed customer?
     }
 
     @Test
-    public void partialcompare_customer_birthday_and_order_price()
-    {
+    public void partialcompare_customer_birthday_and_order_price() {
         Customer actual = customerRepo.getComposedCustomer();
 
-        Customer expected = new Customer(){{
-           setBirthday(LocalDate.of(1999, 9,9));
-           setOrder(new Order(){{
-               setPrice(91);
-           }});
+        Customer expected = new Customer() {{
+            setBirthday(LocalDate.of(1999, 9, 9));
+            setOrder(new Order() {{
+                setPrice(91);
+            }});
         }};
 
         //how to assert actual is equal to expected?
